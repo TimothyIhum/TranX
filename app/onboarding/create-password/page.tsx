@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const CreatePassword: React.FC = () => {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const validatePassword = (pwd: string): boolean => {
@@ -19,14 +19,17 @@ const CreatePassword: React.FC = () => {
 
   const handleNext = () => {
     if (!validatePassword(password)) {
-      setError('Password must be at least 12 characters long and include uppercase, lowercase, number, and symbol.');
+      setError(
+        "Password must be at least 12 characters long and include uppercase, lowercase, number, and symbol.",
+      );
       return;
     }
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError("Passwords do not match.");
       return;
     }
-    router.push('/onboarding/security-questions');
+    sessionStorage.setItem("tranx_password", password);
+    router.push("/onboarding/security-questions");
   };
 
   return (
@@ -48,7 +51,10 @@ const CreatePassword: React.FC = () => {
           className="w-full p-3 border border-gray-300 rounded-md mb-4"
         />
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        <button onClick={handleNext} className="w-full bg-blue-600 text-white py-3 px-6 rounded-md">
+        <button
+          onClick={handleNext}
+          className="w-full bg-blue-600 text-white py-3 px-6 rounded-md"
+        >
           Next
         </button>
       </div>
