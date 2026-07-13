@@ -2,10 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Your Custom Styles */
 body {
-  background-color: #FFFFFF;
-  color: #111111;
-  font-family: 'Inter', sans-serif;
+  background-color: #FFFFFF; /* White background */
+  color: #111111; /* Black text */
+  font-family: 'Inter', sans-serif; /* Example font, ensure it's available */
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .rounded-lg {
@@ -13,5 +26,18 @@ body {
 }
 
 .bg-blue-600 {
-  background-color: #1565C0;
+  background-color: #1565C0; /* Primary Blue */
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: #0D47A1; /* Secondary Navy */
+}
+
+.focus\:ring-blue-500 {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Notepad-like vault editor styles can be added here */
+.vault-editor {
+  /* Add styles for the content editor */
 }
